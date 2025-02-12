@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA9580D4F03AEADADD351F72 /* Pods_FavBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4FBC8D389BD66700C83618 /* Pods_FavBook.framework */; };
+		04DD8724888E292D22ED3FD6 /* Pods_FavBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 478611CB91B8E609C3D06B56 /* Pods_FavBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		013CB06D2D55EC5B004188CC /* FavBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		07B3CBB8EE50D73ABF72975B /* Pods-FavBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavBook.debug.xcconfig"; path = "Target Support Files/Pods-FavBook/Pods-FavBook.debug.xcconfig"; sourceTree = "<group>"; };
-		1F4FBC8D389BD66700C83618 /* Pods_FavBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0992A64A82F4971C5A46E44 /* Pods-FavBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavBook.release.xcconfig"; path = "Target Support Files/Pods-FavBook/Pods-FavBook.release.xcconfig"; sourceTree = "<group>"; };
+		478611CB91B8E609C3D06B56 /* Pods_FavBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DB31BC5B3F35770BC848109 /* Pods-FavBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavBook.debug.xcconfig"; path = "Target Support Files/Pods-FavBook/Pods-FavBook.debug.xcconfig"; sourceTree = "<group>"; };
+		C54EBD4CBFC01B22F8DDBC19 /* Pods-FavBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavBook.release.xcconfig"; path = "Target Support Files/Pods-FavBook/Pods-FavBook.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA9580D4F03AEADADD351F72 /* Pods_FavBook.framework in Frameworks */,
+				04DD8724888E292D22ED3FD6 /* Pods_FavBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +56,7 @@
 				013CB06F2D55EC5B004188CC /* FavBook */,
 				013CB06E2D55EC5B004188CC /* Products */,
 				EF7E91C55C3BE6FD6486182B /* Pods */,
-				E958C12714B236C5B0037684 /* Frameworks */,
+				1F1CED9CAC02C512601330CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,10 +68,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E958C12714B236C5B0037684 /* Frameworks */ = {
+		1F1CED9CAC02C512601330CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F4FBC8D389BD66700C83618 /* Pods_FavBook.framework */,
+				478611CB91B8E609C3D06B56 /* Pods_FavBook.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -79,8 +79,8 @@
 		EF7E91C55C3BE6FD6486182B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				07B3CBB8EE50D73ABF72975B /* Pods-FavBook.debug.xcconfig */,
-				B0992A64A82F4971C5A46E44 /* Pods-FavBook.release.xcconfig */,
+				5DB31BC5B3F35770BC848109 /* Pods-FavBook.debug.xcconfig */,
+				C54EBD4CBFC01B22F8DDBC19 /* Pods-FavBook.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -92,11 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 013CB0802D55EC5C004188CC /* Build configuration list for PBXNativeTarget "FavBook" */;
 			buildPhases = (
-				DCFA50A69299A63CEF5C1EBE /* [CP] Check Pods Manifest.lock */,
+				91C4D1110FDF16622366C6A1 /* [CP] Check Pods Manifest.lock */,
 				013CB0692D55EC5B004188CC /* Sources */,
 				013CB06A2D55EC5B004188CC /* Frameworks */,
 				013CB06B2D55EC5B004188CC /* Resources */,
-				243B99B426C62134AB37ACF4 /* [CP] Embed Pods Frameworks */,
+				85BEBE421ABECBAB01B93A61 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,7 +155,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		243B99B426C62134AB37ACF4 /* [CP] Embed Pods Frameworks */ = {
+		85BEBE421ABECBAB01B93A61 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -172,7 +172,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FavBook/Pods-FavBook-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DCFA50A69299A63CEF5C1EBE /* [CP] Check Pods Manifest.lock */ = {
+		91C4D1110FDF16622366C6A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,13 +209,14 @@
 /* Begin XCBuildConfiguration section */
 		013CB0812D55EC5C004188CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07B3CBB8EE50D73ABF72975B /* Pods-FavBook.debug.xcconfig */;
+			baseConfigurationReference = 5DB31BC5B3F35770BC848109 /* Pods-FavBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W9K9K372K9;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FavBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -223,6 +224,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -238,13 +240,14 @@
 		};
 		013CB0822D55EC5C004188CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0992A64A82F4971C5A46E44 /* Pods-FavBook.release.xcconfig */;
+			baseConfigurationReference = C54EBD4CBFC01B22F8DDBC19 /* Pods-FavBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W9K9K372K9;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FavBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -252,6 +255,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +307,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				"EXCLUDED_ARCHS[sdk=iphone*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -366,6 +371,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				"EXCLUDED_ARCHS[sdk=iphone*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -378,6 +384,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
