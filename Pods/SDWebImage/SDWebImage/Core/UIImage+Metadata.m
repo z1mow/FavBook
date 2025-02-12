@@ -143,7 +143,6 @@
 
 - (BOOL)sd_isVector {
     NSRect imageRect = NSMakeRect(0, 0, self.size.width, self.size.height);
-    // This may returns a NSProxy, so don't use `class` to check
     NSImageRep *imageRep = [self bestRepresentationForRect:imageRect context:nil hints:nil];
     if ([imageRep isKindOfClass:[NSPDFImageRep class]]) {
         return YES;
@@ -151,8 +150,7 @@
     if ([imageRep isKindOfClass:[NSEPSImageRep class]]) {
         return YES;
     }
-    Class NSSVGImageRepClass = NSClassFromString([NSString stringWithFormat:@"_%@", SD_NSSTRING(NSSVGImageRep)]);
-    if ([imageRep isKindOfClass:NSSVGImageRepClass]) {
+    if ([NSStringFromClass(imageRep.class) hasSuffix:@"NSSVGImageRep"]) {
         return YES;
     }
     return NO;

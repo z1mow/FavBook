@@ -141,12 +141,6 @@ static CGFloat SDImageScaleFromPath(NSString *string) {
     if (!data || data.length == 0) {
         return nil;
     }
-    // Vector image does not supported, guard firstly
-    SDImageFormat format = [NSData sd_imageFormatForImageData:data];
-    if (format == SDImageFormatSVG || format == SDImageFormatPDF) {
-        return nil;
-    }
-    
     id<SDAnimatedImageCoder> animatedCoder = nil;
     SDImageCoderMutableOptions *mutableCoderOptions;
     if (options != nil) {
@@ -173,17 +167,11 @@ static CGFloat SDImageScaleFromPath(NSString *string) {
         if (!image) {
             return nil;
         }
-        // Vector image does not supported, guard secondly
-        if (image.sd_isVector) {
-            return nil;
-        }
 #if SD_MAC
         self = [super initWithCGImage:image.CGImage scale:MAX(scale, 1) orientation:kCGImagePropertyOrientationUp];
 #else
         self = [super initWithCGImage:image.CGImage scale:MAX(scale, 1) orientation:image.imageOrientation];
 #endif
-        // Defines the associated object that holds the format for static images
-        super.sd_imageFormat = format;
         return self;
     }
 }
@@ -347,7 +335,7 @@ static CGFloat SDImageScaleFromPath(NSString *string) {
 @implementation SDAnimatedImage (Metadata)
 
 - (BOOL)sd_isAnimated {
-    return self.animatedImageFrameCount > 1;
+    return YES;
 }
 
 - (NSUInteger)sd_imageLoopCount {
@@ -359,21 +347,15 @@ static CGFloat SDImageScaleFromPath(NSString *string) {
 }
 
 - (NSUInteger)sd_imageFrameCount {
-    NSUInteger frameCount = self.animatedImageFrameCount;
-    if (frameCount > 1) {
-        return frameCount;
-    } else {
-        return 1;
-    }
+    return self.animatedImageFrameCount;
 }
 
 - (SDImageFormat)sd_imageFormat {
-    NSData *animatedImageData = self.animatedImageData;
-    if (animatedImageData) {
-        return [NSData sd_imageFormatForImageData:animatedImageData];
-    } else {
-        return [super sd_imageFormat];
-    }
+    return self.animatedImageFormat;
+}
+
+- (void)setSd_imageFormat:(SDImageFormat)sd_imageFormat {
+    return;
 }
 
 - (BOOL)sd_isVector {
