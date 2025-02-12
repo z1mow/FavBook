@@ -14,6 +14,7 @@ FavBook is an iOS application that helps users manage their reading list. Users 
 ## Screenshots
 
 ![Main Screen](screenshots/main_screen.png)
+![Main Screen](screenshots/main_screen2.png)
 
 ## Requirements
 
