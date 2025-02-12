@@ -21,6 +21,13 @@ class ViewController: UIViewController {
         setupUI()
         setupSearchController()
         setupTableView()
+        setupViewModel()
+        viewModel.loadBooks()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.loadBooks()
     }
     
     private func setupUI() {
@@ -40,6 +47,23 @@ class ViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    private func setupViewModel() {
+        viewModel.onBooksUpdated = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowBookSearch",
+           let navController = segue.destination as? UINavigationController,
+           let searchVC = navController.topViewController as? BookSearchViewController {
+            searchVC.viewModel = self.viewModel  // Explicitly set the viewModel
+            searchVC.delegate = self
+        }
+    }
+    
     @IBAction func segmentControlValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0: // All
@@ -56,7 +80,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
-        // Will implement book search and add functionality
+        // Segue will handle the navigation
     }
 }
 
@@ -86,6 +110,28 @@ extension ViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
         viewModel.searchLocalBooks(with: searchText)
+    }
+}
+
+// MARK: - BookSearchViewControllerDelegate
+extension ViewController: BookSearchViewControllerDelegate {
+    func didSelectBook(_ book: VolumeInfo) {
+        viewModel.addBook(from: book)
+        
+        // Refresh current segment
+        let currentSegment = segmentControl.selectedSegmentIndex
+        switch currentSegment {
+        case 0: // All
+            viewModel.filterBooks(by: nil)
+        case 1: // Reading
+            viewModel.filterBooks(by: "Reading")
+        case 2: // To Read
+            viewModel.filterBooks(by: "ToRead")
+        case 3: // Completed
+            viewModel.filterBooks(by: "Completed")
+        default:
+            break
+        }
     }
 }
 

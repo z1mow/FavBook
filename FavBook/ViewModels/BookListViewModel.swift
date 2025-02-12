@@ -12,6 +12,7 @@ final class BookListViewModel {
     private let googleBooksService = GoogleBooksService.shared
     
     var books: [Book] = []
+    var searchResults: [VolumeInfo] = []
     var onBooksUpdated: (() -> Void)?
     var onError: ((String) -> Void)?
     
@@ -21,15 +22,19 @@ final class BookListViewModel {
         books = coreDataManager.fetchBooks(sortDescriptors: [
             NSSortDescriptor(key: "addedDate", ascending: false)
         ])
-        onBooksUpdated?()
+        
+        // Notify on main thread
+        DispatchQueue.main.async { [weak self] in
+            self?.onBooksUpdated?()
+        }
     }
     
     func searchGoogleBooks(query: String) {
         googleBooksService.searchBooks(query: query) { [weak self] result in
             switch result {
             case .success(let volumes):
-                // Convert Google Books results to view model items
-                self?.handleGoogleBooksResults(volumes)
+                self?.searchResults = volumes
+                self?.onBooksUpdated?()
             case .failure(let error):
                 self?.onError?(error.localizedDescription)
             }
@@ -56,7 +61,18 @@ final class BookListViewModel {
         )
         
         if book != nil {
-            loadBooks()
+            // Save context immediately
+            coreDataManager.saveContext()
+            
+            // Fetch the updated books list
+            books = coreDataManager.fetchBooks(sortDescriptors: [
+                NSSortDescriptor(key: "addedDate", ascending: false)
+            ])
+            
+            // Notify on main thread
+            DispatchQueue.main.async { [weak self] in
+                self?.onBooksUpdated?()
+            }
         }
     }
     
@@ -78,9 +94,15 @@ final class BookListViewModel {
         if let status = status {
             books = coreDataManager.fetchBooksByReadingStatus(status)
         } else {
-            loadBooks()
+            books = coreDataManager.fetchBooks(sortDescriptors: [
+                NSSortDescriptor(key: "addedDate", ascending: false)
+            ])
         }
-        onBooksUpdated?()
+        
+        // Notify on main thread
+        DispatchQueue.main.async { [weak self] in
+            self?.onBooksUpdated?()
+        }
     }
     
     func searchLocalBooks(with query: String) {
